@@ -30,8 +30,8 @@ r - number of rows
 m - number of mines
 l - (optional) number of lives
 
-Example 1 - `new 10 10 30`
-Example 2 - `n 10 10 30`
+Example 1 - `new 10 10 30` | `new 10 10 30 5`
+Example 2 - `n 10 10 30` | `n 10 10 30 5`
 
 
 ### Open a square

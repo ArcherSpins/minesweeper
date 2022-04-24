@@ -10,13 +10,13 @@ class Game {
   firstTurn = true
   lives = DEFAULT_LIVES_COUNT;
 
-  constructor (width, height, minesNumber, countLives) {
+  constructor (width, height, minesNumber, livesNumber) {
     this.width = Number(width)
     this.height = Number(height)
     this.minesNumber = Number(minesNumber)
 
-    if (countLives) {
-      this.lives = countLives;
+    if (livesNumber) {
+      this.lives = livesNumber;
     }
 
     this.field = new Array(this.height).fill(new Array(this.width).fill(0))
