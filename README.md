@@ -23,11 +23,12 @@
 
 ### The beginning of the game
 
-- Enter the following command in the project folder console `(new or n) c r mines`
+- Enter the following command in the project folder console `(new or n) c r m l`
 
 c - number of columns
 r - number of rows
-mines - number of mines
+m - number of mines
+l - (optional) number of lives
 
 Example 1 - `new 10 10 30`
 Example 2 - `n 10 10 30`
