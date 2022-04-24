@@ -3,14 +3,21 @@ const { randomInt } = require('crypto')
 const Grid = require('./grid')
 const Square = require('./square')
 
+const DEFAULT_LIVES_COUNT = 3;
+
 class Game {
   over = false
   firstTurn = true
+  lives = DEFAULT_LIVES_COUNT;
 
-  constructor (width, height, minesNumber) {
+  constructor (width, height, minesNumber, countLives) {
     this.width = Number(width)
     this.height = Number(height)
     this.minesNumber = Number(minesNumber)
+
+    if (countLives) {
+      this.lives = countLives;
+    }
 
     this.field = new Array(this.height).fill(new Array(this.width).fill(0))
       .map(
@@ -79,9 +86,15 @@ class Game {
     square.open = true
 
     if (square.bomb) {
-      square.bomb = '\x1b[5mØ\x1b[0m'
-      this.openAll()
-      this.over = 'You loose!'
+      this.lives--;
+      this.over = `You fell for a mine, you have left ${this.lives} lives`;
+
+      if (this.lives <= 0) {
+        square.bomb = '\x1b[5mØ\x1b[0m'
+        this.openAll()
+        this.over = 'You loose!'
+      }
+
       return
     }
 

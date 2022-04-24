@@ -15,9 +15,9 @@ app.on('line', (line) => {
   switch(command) {
     case 'n':
     case 'new':
-      if (args.length === 3 && args.every((arg) => !isNaN(Number(arg)))) {
-        const [width, height, minesNumber] = args
-        game = new Game(width, height, minesNumber)
+      if ((args.length === 3) || (args.length === 4) && args.every((arg) => !isNaN(Number(arg)))) {
+        const [width, height, minesNumber, lives] = args
+        game = new Game(width, height, minesNumber, lives)
         console.log(`\n${game}\n`)
       }
       break
