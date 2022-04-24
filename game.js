@@ -3,20 +3,17 @@ const { randomInt } = require('crypto')
 const Grid = require('./grid')
 const Square = require('./square')
 
-const DEFAULT_LIVES_COUNT = 3;
-
 class Game {
   over = false
   firstTurn = true
-  lives = DEFAULT_LIVES_COUNT;
 
-  constructor (width, height, minesNumber, countLives) {
+  constructor (width, height, mines, lives = 3) {
     this.width = Number(width)
     this.height = Number(height)
-    this.minesNumber = Number(minesNumber)
+    this.mines = Number(mines)
 
-    if (countLives) {
-      this.lives = countLives;
+    if (lives) {
+      this.lives = lives;
     }
 
     this.field = new Array(this.height).fill(new Array(this.width).fill(0))
@@ -38,7 +35,7 @@ class Game {
         if (b === exceptSquare) return -1
         return randomInt(2) || -1
       })
-      .slice(0, this.minesNumber)
+      .slice(0, this.mines)
 
     minedSquares.forEach((square) => {
       square.bomb = '¤'
