@@ -71,6 +71,12 @@ class Game {
     ].filter(Boolean)
   }
 
+  setTheme(theme) {
+    this.squares.forEach(square => {
+      square.setTheme(theme);
+    });
+  }
+
   openSquare (col, row) {
     const square = this.field[col]?.[row]
 

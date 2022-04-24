@@ -34,6 +34,15 @@ Example 1 - `new 10 10 30`
 Example 2 - `n 10 10 30`
 
 
+### Set theme color
+
+- Enter the following command in the project folder console `(theme or t) color`
+
+color - theme color (default | black | red | green | yellow | blue | cyan)
+
+Example 1 - `theme red`
+Example 2 - `t green`
+
 ### Open a square
 
 - Enter the following command in the project folder console `(open or o) c r`

@@ -40,6 +40,15 @@ app.on('line', (line) => {
       }
       break
 
+    case 't':
+    case 'theme':
+      if (args.length) {
+        const [theme] = args
+        game.setTheme(theme)
+        console.log(`\n${game}\n`)
+      }
+      break
+
     default:
       break
   }
